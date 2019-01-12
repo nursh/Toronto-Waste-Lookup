@@ -1,0 +1,30 @@
+.search {
+
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-column-gap: 2rem;
+
+  &__input {
+    font-size: 2rem;
+    padding: 1.5rem;
+    color: $text-color;
+    outline: none;
+  }
+
+  &__button {
+    border: none;
+    background-color: $green;
+    border-radius: .2rem;
+    outline: none;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  &__icon {
+    height: 3rem;
+    width: 3rem;
+    fill: #fff;
+    transform: rotate(90deg);
+  }
+}
