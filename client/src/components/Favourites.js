@@ -4,7 +4,7 @@ import he from "he";
 
 import sprite from "../img/sprite.svg";
 
-const Results = ({ data }) => {
+const Favourites = ({ data }) => {
 
   return data.map(({ title, body }, index) => (
     <div className="result" key={index}>
@@ -23,4 +23,4 @@ const Results = ({ data }) => {
   ))
 }
 
-export default Results;
+export default Favourites;
