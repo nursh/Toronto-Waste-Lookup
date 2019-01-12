@@ -1,0 +1,11 @@
+type Query {
+  name: String
+  items(search: String): [Item!]!
+}
+
+type Item {
+  body: String!
+  category: String!
+  title: String!
+  keywords: String!
+}

@@ -1,0 +1,24 @@
+
+sudo: required
+services:
+  - docker
+
+notifications:
+  email: false
+
+before_install:
+  - docker build -t nursh/toronto-waste-lookup -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run nursh/toronto-waste-lookup npm test -- --coverage
+
+after_success:
+  - docker build -t nursh/waste-client ./client
+  - docker build -t nursh/waste-nginx ./nginx
+  - docker build -t nursh/waste-server ./server
+  # login to docker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push images to docker hub
+  - docker push nursh/waste-client
+  - docker push nursh/waste-nginx
+  - docker push nursh/waste-server
