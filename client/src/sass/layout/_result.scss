@@ -1,10 +1,14 @@
 .results {
   padding: 2rem;
 
+  &--green {
+    background-color: $favourite-background;
+  }
+
   .result {
     display: grid;
     grid-template-columns: 2fr 3fr;
-    grid-column-gap: 12rem;
+    grid-column-gap: 8rem;
     margin-bottom: 5rem;
 
     &__title {
@@ -18,8 +22,13 @@
       width: 2rem;
       fill: #cdcdcd;
 
+      &--green,
       &:hover {
         fill: $green;
+      }
+
+      &--green:hover {
+        fill: #cdcdcd;
       }
     }
 
