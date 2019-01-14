@@ -3,7 +3,6 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
 import sprite from "../img/sprite.svg";
-import Results from "./Results";
 import Items from "./Items";
 
 class App extends Component {
