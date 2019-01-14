@@ -1,22 +1,12 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
-import { addToFavourites, removeFromFavourites } from "../actions";
 import sprite from "../img/sprite.svg";
 import Results from "./Results";
-import Favourites from "./Favourites";
+import Items from "./Items";
 
 class App extends Component {
-  state = {
-    favourites: this.props.favourites
-  };
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.favourites !== nextProps.favourites)
-      this.setState({ favourites: nextProps.favourites });
-  }
 
   search = React.createRef();
 
@@ -29,7 +19,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.props);
     if (!this.props.data.items) return "Loading...";
 
     return (
@@ -45,20 +34,8 @@ class App extends Component {
             </svg>
           </button>
         </form>
-        <div className="results">
-          <Results
-            data={this.props.data.items}
-            addToFavourites={this.props.addToFavourites}
-            removeFromFavourites={this.props.removeFromFavourites}
-          />
-        </div>
-        <div className="results results--green">
-          <h2 className="section__heading">Favourites</h2>
-          <Favourites
-            favourites={this.state.favourites}
-            removeFromFavourites={this.props.removeFromFavourites}
-          />
-        </div>
+        <Items data={this.props.data.items} />
+        <Items heading="Favourites" />
       </div>
     );
   }
@@ -73,17 +50,10 @@ const fetchItems = gql`
   }
 `;
 
-const mapStateToProps = ({ favourites }) => ({ favourites });
-
-export default connect(
-  mapStateToProps,
-  { addToFavourites, removeFromFavourites }
-)(
-  graphql(fetchItems, {
-    options: {
+export default graphql(fetchItems, {
+  options: {
       variables: {
         search: "takeout"
       }
     }
-  })(App)
-);
+  })(App);
