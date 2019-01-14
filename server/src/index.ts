@@ -1,4 +1,4 @@
-import { ApolloServer, gql } from 'apollo-server-express';
+const { ApolloServer, gql } = require('apollo-server-express');
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
