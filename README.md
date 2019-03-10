@@ -25,5 +25,5 @@ A grey star means the item is not contained in the favourites list while a green
 
 ## Deployment Links
 
-* [Toronto Waste Lookup](http://torontowastelookup-env.hfm2tumbem.us-east-2.elasticbeanstalk.com/)
-* [GraphQL API](http://torontowastelookup-env.hfm2tumbem.us-east-2.elasticbeanstalk.com/graphql)
+* [Toronto Waste Lookup](http://toronto-waste-lookup.us-east-2.elasticbeanstalk.com/)
+* [GraphQL API](http://toronto-waste-lookup.us-east-2.elasticbeanstalk.com/graphql)
